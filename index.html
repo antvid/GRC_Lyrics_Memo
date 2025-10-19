@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rock Lyrics Trainer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="topbar">
+      <div class="brand">
+        <h1 id="projectName">Rock Lyrics Trainer</h1>
+        <div class="subtitle" id="projectTag">Memoriza letras con ganchos y modos de práctica</div>
+      </div>
+      <div class="top-controls">
+        <select id="langSelect" aria-label="Idioma">
+          <option value="es">Español</option>
+          <option value="en">English</option>
+        </select>
+        <button id="openSettings" class="btn">⚙</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="panel left">
+        <h2 data-i18n="modes">Modos</h2>
+        <div class="modes">
+          <button class="mode-btn" data-mode="study">Estudio</button>
+          <button class="mode-btn" data-mode="game">Juego</button>
+          <button class="mode-btn" data-mode="mixed">Mixto</button>
+        </div>
+
+        <h3 data-i18n="players">Jugadores</h3>
+        <div class="modes">
+          <button id="soloBtn" class="mode-btn" data-player="solo">Solo</button>
+          <button id="groupBtn" class="mode-btn" data-player="group">Grupo</button>
+        </div>
+
+        <h3 data-i18n="load">Cargar canción</h3>
+        <div class="load-area">
+          <label data-i18n="driveId">Drive folder ID</label>
+          <input id="driveIdInput" placeholder="Pega aquí el ID de carpeta de Drive" />
+          <div class="row">
+            <button id="loadFromDrive" class="btn primary">Cargar desde Drive</button>
+            <button id="uploadLocal" class="btn">Subir archivo local</button>
+            <input id="fileInput" type="file" accept=".txt,.md" style="display:none" multiple />
+          </div>
+        </div>
+
+        <div class="prefs">
+          <label><input id="showHooks" type="checkbox" checked /> <span data-i18n="showHooks">Mostrar ganchos</span></label>
+          <label><input id="autoAdvance" type="checkbox" /> <span data-i18n="autoAdvance">Avanzar automático</span></label>
+        </div>
+
+        <div class="stored">
+          <h4 data-i18n="saved">Guardado</h4>
+          <button id="loadSaved" class="btn">Continuar último</button>
+          <button id="clearSaved" class="btn">Borrar progreso</button>
+        </div>
+
+      </aside>
+
+      <section class="panel center">
+        <div class="verse-area">
+          <div class="verse-header">
+            <div>
+              <strong id="versePos">Verso 1 / 1</strong>
+              <div id="modeLabel">Modo: Estudio — Solo</div>
+            </div>
+            <div class="controls">
+              <button id="prevBtn" class="btn">◀</button>
+              <button id="nextBtn" class="btn primary">▶</button>
+            </div>
+          </div>
+
+          <pre id="verseText" class="verse" aria-live="polite"></pre>
+          <div id="hookText" class="hook" hidden></div>
+        </div>
+
+        <div class="progress-row">
+          <div id="progressBar" class="progress"><div class="bar"></div></div>
+          <div id="progressPct">0%</div>
+        </div>
+
+      </section>
+
+      <aside class="panel right">
+        <div id="activityArea"></div>
+        <div class="score">
+          <div>Aciertos: <span id="score">0</span></div>
+          <div>Intentos: <span id="tries">0</span></div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <div id="credits">Hecho para practicar letras — editable y multi-idioma.</div>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

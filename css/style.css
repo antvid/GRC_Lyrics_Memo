@@ -1,0 +1,25 @@
+:root{ --bg:#0b0b0f; --card:#111216; --accent:#e64c3c; --accent-2:#6e44ff; --muted:#aab3bf }
+*{box-sizing:border-box} html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,#070709,#0b0b0f);color:#eef2f7}
+.app{display:flex;flex-direction:column;min-height:100vh}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,0.03)}
+.brand h1{margin:0;font-size:18px}
+.main{display:grid;grid-template-columns:320px 1fr 340px;gap:14px;padding:18px;flex:1}
+.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.left .modes{display:flex;gap:8px}
+.mode-btn{flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit;cursor:pointer}
+.mode-btn.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#071024;font-weight:700}
+.verse{white-space:pre-wrap;font-size:18px;line-height:1.5;margin-top:12px}
+.hook{margin-top:12px;color:var(--muted);font-size:14px;border-top:1px dashed rgba(255,255,255,0.03);padding-top:8px}
+.controls{display:flex;gap:8px}
+.btn{padding:8px 10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:inherit;cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#071024}
+.progress{background:rgba(255,255,255,0.03);height:10px;border-radius:8px;overflow:hidden}
+.progress .bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+.score{display:flex;justify-content:space-between;margin-top:12px;color:var(--muted)}
+.footer{padding:10px 18px;border-top:1px solid rgba(255,255,255,0.03);font-size:13px}
+
+/* Responsive */
+@media (max-width:1000px){ .main{grid-template-columns:1fr; padding:12px} .left{order:2} .right{order:3} }
+
+/* tactile targets */
+@media (max-width:600px){ .mode-btn{padding:12px;font-size:16px} .verse{font-size:16px} }
